@@ -3,13 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import RickAndMortyContextProvider from "./store/contexts/RickAndMortyContextProvider";
+import MarvelContextProvider from "./store/contexts/MarvelContextProvider";
 
 ReactDOM.render(
   <React.StrictMode>
-    <RickAndMortyContextProvider>
+    <MarvelContextProvider>
       <App />
-    </RickAndMortyContextProvider>
+    </MarvelContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
