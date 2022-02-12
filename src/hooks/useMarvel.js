@@ -22,10 +22,8 @@ const useMarvel = () => {
 
   const getCharacters = useCallback(async () => {
     try {
-      console.log(process.env.REACT_APP_MARVEL_AUTH);
       const { data } = await axios.get(urlApiCharacters);
       const { data: characters } = data;
-      console.log(characters.results);
       setCharacters(characters.results);
     } catch (error) {
       return error;
@@ -38,7 +36,6 @@ const useMarvel = () => {
     try {
       const { data } = await axios.get(urlApiSeries);
       const { data: series } = data;
-      console.log(series.results);
       setSeries(series.results);
     } catch (error) {
       return error;
@@ -51,7 +48,6 @@ const useMarvel = () => {
     try {
       const { data } = await axios.get(urlApiEvents);
       const { data: events } = data;
-      console.log(events.results);
       setEvents(events.results);
     } catch (error) {
       return error;
