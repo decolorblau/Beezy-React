@@ -1,0 +1,35 @@
+.gallery-title {
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  color: #dcdcdc;
+  letter-spacing: 3px;
+  font-weight: normal;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: auto;
+  padding: 0;
+  max-width: 1450px;
+}
+
+@media (min-width: 768px) {
+  .gallery-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .gallery-title {
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .gallery-title {
+    font-size: 35px;
+  }
+}
