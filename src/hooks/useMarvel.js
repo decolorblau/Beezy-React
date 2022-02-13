@@ -17,8 +17,8 @@ const useMarvel = () => {
   const limit = 24;
   const urlApi = "http://gateway.marvel.com/v1/public/";
 
-  const urlApiCharacters = `${urlApi}characters??orderBy=${orderByCharacters}limit=${limit}&offset=${offsetCharacters}${process.env.REACT_APP_MARVEL_AUTH}`;
-  const urlApiSeries = `${urlApi}series??orderBy=${orderBySeries}limit=${limit}&offset=${offsetSeries}${process.env.REACT_APP_MARVEL_AUTH}`;
+  const urlApiCharacters = `${urlApi}characters?orderBy=${orderByCharacters}&limit=${limit}&offset=${offsetCharacters}${process.env.REACT_APP_MARVEL_AUTH}`;
+  const urlApiSeries = `${urlApi}series?orderBy=${orderBySeries}&limit=${limit}&offset=${offsetSeries}${process.env.REACT_APP_MARVEL_AUTH}`;
   const urlApiEvents = `${urlApi}events?orderBy=${orderByEvents}&limit=${limit}&offset=${offsetEvents}${process.env.REACT_APP_MARVEL_AUTH}`;
 
   /* <--- Characters --->*/
