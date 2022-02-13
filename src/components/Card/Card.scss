@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.card-container {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+  margin: 5px;
+}
+
+.card__image {
+  width: 100%;
+}
+
+.card__info {
+  width: 100%;
+  bottom: -210px;
+  padding: 15px;
+  text-align: right;
+  font-family: "Raleway", sans-serif;
+  border-radius: 25px 25px 0 0;
+  backdrop-filter: blur(10px);
+  background: rgba(21, 24, 27, 0.5);
+  transition: 0.5s;
+  position: absolute;
+}
+
+.card__info > div {
+  margin-top: 15px;
+}
+
+.card__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.card__period {
+  font-size: 12px;
+  font-weight: 300;
+  color: white;
+}
+
+@media (min-width: 1024px) {
+  .card-container {
+    overflow-y: hidden;
+  }
+  .card-container .card__info {
+    bottom: -40px;
+  }
+  .card-container:hover .card__info {
+    display: flex;
+    bottom: 0px;
+  }
+}
