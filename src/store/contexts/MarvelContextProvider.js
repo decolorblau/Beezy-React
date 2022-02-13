@@ -7,8 +7,10 @@ const MarvelContextProvider = ({ children }) => {
   const [orderByCharacters, setOrderByCharacters] = useState("name");
   const [orderBySeries, setOrderBySeries] = useState("title");
   const [characters, setCharacters] = useState([]);
+  const [marvelArray, setMarvelArray] = useState([]);
   const [series, setSeries] = useState([]);
   const [events, setEvents] = useState([]);
+  const [title, setTitle] = useState("EVENTS");
 
   return (
     <MarvelContext.Provider
@@ -27,6 +29,10 @@ const MarvelContextProvider = ({ children }) => {
         setOrderByCharacters,
         orderBySeries,
         setOrderBySeries,
+        title,
+        marvelArray,
+        setMarvelArray,
+        setTitle,
       }}
     >
       {children}
