@@ -1,12 +1,23 @@
 import { useContext, useEffect } from "react";
-import useMarvel from "../../hooks/useMarvel";
 import MarvelContext from "../../store/contexts/MarvelContext";
 import Gallery from "../../components/Galley/Gallery";
 import "./MarvelPage.scss";
+import useMarvel from "../../hooks/useMarvel";
+import Footer from "../../components/Footer/Footer";
 
 const MarvelPage = () => {
-  const { events, setOrderByEvents, orderByEvents } = useContext(MarvelContext);
-  const { getEvents } = useMarvel();
+  const {
+    setOrderByEvents,
+    orderByEvents,
+    title,
+    setTitle,
+    events,
+    characters,
+    series,
+    setMarvelArray,
+  } = useContext(MarvelContext);
+  const { getEvents, getCharacters, getSeries } = useMarvel();
+
   const eventsOptions = [
     { label: "By Date: Start to End", value: "startDate" },
     { label: "By Date: End to Start", value: "-startDate" },
@@ -15,35 +26,68 @@ const MarvelPage = () => {
   ];
 
   useEffect(() => {
-    getEvents();
-  }, [getEvents]);
+    switch (title) {
+      case "EVENTS":
+        getEvents();
+        events && setMarvelArray(events);
+        break;
+      case "CHARACTERS":
+        getCharacters();
+        characters && setMarvelArray(characters);
+        break;
+      case "SERIES":
+        getSeries();
+        series && setMarvelArray(series);
+        break;
+      default:
+        console.log("This is an error");
+    }
+  }, [
+    characters,
+    events,
+    getCharacters,
+    getEvents,
+    getSeries,
+    series,
+    setMarvelArray,
+    title,
+  ]);
 
   const changeOrder = (event) => {
     setOrderByEvents(event.target.value);
+  };
+
+  const changeTitle = (newTitle) => {
+    console.log(newTitle);
+    setTitle(newTitle);
   };
 
   return (
     <div className="marvel">
       <div className="marvel__img"></div>
       <div className="marvel__filter">
-        <button autoFocus className="marvel__filter-button">
+        <button
+          onClick={() => changeTitle("EVENTS")}
+          className="marvel__filter-button"
+        >
           EVENTS
         </button>
         <button
-          style={{ "border-style": "none" }}
+          onClick={() => changeTitle("CHARACTERS")}
           className="marvel__filter-button"
         >
           CHARACTERS
         </button>
-        <button className="marvel__filter-button">SERIES</button>
+        <button
+          onClick={() => changeTitle("SERIES")}
+          className="marvel__filter-button"
+        >
+          SERIES
+        </button>
       </div>
       <div className="orderBy">
         <h3 style={{ color: "white" }}>Sort: </h3>
-        <select
-          style={{ color: "white" }}
-          value={orderByEvents}
-          onChange={changeOrder}
-        >
+        <select value={orderByEvents} onChange={changeOrder}>
           {eventsOptions.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
@@ -51,7 +95,8 @@ const MarvelPage = () => {
           ))}
         </select>
       </div>
-      <Gallery events={events} />
+      <Gallery title={title} />
+      <Footer />
     </div>
   );
 };
