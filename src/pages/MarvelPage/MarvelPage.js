@@ -24,8 +24,18 @@ const MarvelPage = () => {
 
   return (
     <div className="marvel">
-      <div className="marvel__img">
-        <img src={require("../../assets/marvelimage.jpg")} alt="marvel logo" />
+      <div className="marvel__img"></div>
+      <div className="marvel__filter">
+        <button autoFocus className="marvel__filter-button">
+          EVENTS
+        </button>
+        <button
+          style={{ "border-style": "none" }}
+          className="marvel__filter-button"
+        >
+          CHARACTERS
+        </button>
+        <button className="marvel__filter-button">SERIES</button>
       </div>
       <div className="orderBy">
         <h3 style={{ color: "white" }}>Sort: </h3>

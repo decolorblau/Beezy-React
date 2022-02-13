@@ -1,5 +1,14 @@
-* {
-  background-color: #000000;
+body {
+  font-family: "Roboto";
+  background-color: #161616;
+}
+
+@font-face {
+  font-family: "marvelregular";
+  src: url("./assets/marvelregular-dj83-webfont.woff2") format("woff2"),
+    url("./assets/marvelregular-dj83-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .App {
