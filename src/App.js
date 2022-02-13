@@ -1,4 +1,5 @@
 import "./App.css";
+import "@fontsource/roboto";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import MarvelPage from "./pages/MarvelPage/MarvelPage";
