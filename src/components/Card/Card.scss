@@ -3,57 +3,110 @@
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
 .card-container {
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
   position: relative;
   overflow: hidden;
   margin: 5px;
+  margin-bottom: 10px;
 }
 
 .card__image {
   width: 100%;
+  height: auto;
+  border-radius: 5px;
 }
 
 .card__info {
   width: 100%;
-  bottom: -210px;
-  padding: 15px;
+  bottom: 0px;
+  height: 35px;
   text-align: right;
-  font-family: "Raleway", sans-serif;
-  border-radius: 25px 25px 0 0;
-  backdrop-filter: blur(10px);
-  background: rgba(21, 24, 27, 0.5);
-  transition: 0.5s;
-  position: absolute;
-}
-
-.card__info > div {
-  margin-top: 15px;
 }
 
 .card__title {
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 500;
   color: white;
-  margin: 0;
+  margin-top: 5px;
+  font-family: "marvelregular", sans-serif;
+  letter-spacing: 1px;
+}
+.card-container:hover .card__title {
+  color: rgb(209, 0, 0);
 }
 
 .card__period {
-  font-size: 12px;
-  font-weight: 300;
-  color: white;
+  display: none;
+}
+@media (min-width: 768px) {
+  .card__info {
+    height: 40px;
+  }
+  .card__title {
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+  }
 }
 
 @media (min-width: 1024px) {
   .card-container {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+    margin: 5px;
     overflow-y: hidden;
+    padding-bottom: 0px;
   }
   .card-container .card__info {
     bottom: -40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
   .card-container:hover .card__info {
-    display: flex;
     bottom: 0px;
+    height: 100%;
+    .card__title {
+      display: block;
+      font-size: 16px;
+      color: rgb(209, 0, 0);
+      font-weight: 700;
+      margin-bottom: 10px;
+      padding: 0 5px;
+    }
+    .card__period {
+      display: block;
+      color: white;
+      font-size: 12px;
+    }
+  }
+  .card__info {
+    width: 100%;
+    bottom: -220px;
+    text-align: right;
+    font-family: "Raleway", sans-serif;
+    backdrop-filter: blur(5px);
+    background: rgba(21, 24, 27, 0.8);
+    transition: 0.5s;
+    position: absolute;
+  }
+  .card__title {
+    display: none;
+  }
+  .card__info > div {
+    margin-top: 0;
+  }
+  .card__period {
+    display: none;
   }
 }
