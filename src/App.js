@@ -1,19 +1,17 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
+import MarvelPage from "./pages/MarvelPage/MarvelPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 function App() {
   return (
     <div className="App">
-      <h1>MARVEL</h1>
       <Router>
         <Routes>
-          <Route index element={<HomePage />} />
-          <Route path="/" element={<App />} />
-          <Route path="/characters" element={<HomePage />} />
-          <Route path="/series" element={<HomePage />} />
-          <Route path="/events" element={<HomePage />} />
-          <Route path="*"></Route>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/marvel" element={<MarvelPage />} />
+          <Route path="*" element={<NotFoundPage />}></Route>
         </Routes>
       </Router>
     </div>
