@@ -13,8 +13,8 @@ const useMarvel = () => {
     orderByEvents,
     orderBySeries,
     orderByCharacters,
+    limit,
   } = useContext(MarvelContext);
-  const limit = 24;
   const urlApi = "http://gateway.marvel.com/v1/public/";
 
   const urlApiCharacters = `${urlApi}characters?orderBy=${orderByCharacters}&limit=${limit}&offset=${offsetCharacters}${process.env.REACT_APP_MARVEL_AUTH}`;
