@@ -4,6 +4,7 @@ import Gallery from "../../components/Galley/Gallery";
 import "./MarvelPage.scss";
 import useMarvel from "../../hooks/useMarvel";
 import Footer from "../../components/Footer/Footer";
+import Pagination from "../../components/Pagination/Pagination";
 
 const MarvelPage = () => {
   const {
@@ -40,7 +41,7 @@ const MarvelPage = () => {
         series && setMarvelArray(series);
         break;
       default:
-        console.log("This is an error");
+        return "error";
     }
   }, [
     characters,
@@ -96,6 +97,7 @@ const MarvelPage = () => {
         </select>
       </div>
       <Gallery title={title} />
+      <Pagination />
       <Footer />
     </div>
   );

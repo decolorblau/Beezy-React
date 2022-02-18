@@ -3,6 +3,8 @@ import { useState } from "react";
 
 const MarvelContextProvider = ({ children }) => {
   const [offsetEvents, setOffsetEvents] = useState(0);
+  const [offsetCharacters, setOffsetCharacters] = useState(0);
+  const [offsetSeries, setOffsetSeries] = useState(0);
   const [orderByEvents, setOrderByEvents] = useState("startDate");
   const [orderByCharacters, setOrderByCharacters] = useState("name");
   const [orderBySeries, setOrderBySeries] = useState("title");
@@ -11,12 +13,17 @@ const MarvelContextProvider = ({ children }) => {
   const [series, setSeries] = useState([]);
   const [events, setEvents] = useState([]);
   const [title, setTitle] = useState("EVENTS");
+  const [limit, setLimit] = useState(24);
 
   return (
     <MarvelContext.Provider
       value={{
         offsetEvents,
         setOffsetEvents,
+        offsetCharacters,
+        setOffsetCharacters,
+        offsetSeries,
+        setOffsetSeries,
         characters,
         setCharacters,
         series,
@@ -33,6 +40,8 @@ const MarvelContextProvider = ({ children }) => {
         marvelArray,
         setMarvelArray,
         setTitle,
+        limit,
+        setLimit,
       }}
     >
       {children}
