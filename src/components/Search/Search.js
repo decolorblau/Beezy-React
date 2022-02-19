@@ -1,38 +1,31 @@
 import { useContext, useState } from "react";
 import useMarvel from "../../hooks/useMarvel";
-import MarvelContext from "../../store/contexts/MarvelContext";
 import "./Search.scss";
+import MarvelContext from "../../store/contexts/MarvelContext";
 
 const Search = () => {
   const [searchInput, setSearchInput] = useState("");
-  const { getEventsByName, getCharactersByName, getComicsByName } = useMarvel();
-  const { title, setSearch } = useContext(MarvelContext);
+  const { getComicsByName, getComics } = useMarvel();
+  const { setSearchByName } = useContext(MarvelContext);
 
   const changeValue = (event) => {
     setSearchInput(event.target.value);
   };
 
   const sendData = () => {
-    setSearch(searchInput);
-    switch (title) {
-      case "EVENTS":
-        getEventsByName(searchInput);
-        break;
-      case "CHARACTERS":
-        getCharactersByName(searchInput);
-        break;
-      case "COMICS":
-        getComicsByName(searchInput);
-        break;
-      default:
-        return "error";
-    }
+    getComicsByName(searchInput);
   };
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       sendData();
     }
+  };
+
+  const clearData = () => {
+    setSearchInput("");
+    setSearchByName(false);
+    getComics();
   };
 
   return (
@@ -57,7 +50,9 @@ const Search = () => {
           autoComplete="off"
         />
       </div>
-      <p className="search__text"></p>
+      <div className="search__close" onClick={clearData}>
+        <p>X</p>
+      </div>
     </>
   );
 };
