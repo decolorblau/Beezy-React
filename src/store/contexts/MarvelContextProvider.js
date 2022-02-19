@@ -2,46 +2,31 @@ import MarvelContext from "./MarvelContext";
 import { useState } from "react";
 
 const MarvelContextProvider = ({ children }) => {
-  const [offsetEvents, setOffsetEvents] = useState(0);
-  const [offsetCharacters, setOffsetCharacters] = useState(0);
-  const [offsetSeries, setOffsetSeries] = useState(0);
-  const [orderByEvents, setOrderByEvents] = useState("startDate");
-  const [orderByCharacters, setOrderByCharacters] = useState("name");
-  const [orderBySeries, setOrderBySeries] = useState("title");
-  const [characters, setCharacters] = useState([]);
-  const [marvelArray, setMarvelArray] = useState([]);
-  const [series, setSeries] = useState([]);
-  const [events, setEvents] = useState([]);
-  const [title, setTitle] = useState("EVENTS");
+  const [offset, setOffset] = useState(0);
+  const [orderBy, setOrderBy] = useState("title");
+  const [comics, setComics] = useState([]);
   const [limit, setLimit] = useState(24);
+  const [total, setTotal] = useState(51242);
+  const [searchByName, setSearchByName] = useState(false);
+  const [comicData, setComicData] = useState([]);
 
   return (
     <MarvelContext.Provider
       value={{
-        offsetEvents,
-        setOffsetEvents,
-        offsetCharacters,
-        setOffsetCharacters,
-        offsetSeries,
-        setOffsetSeries,
-        characters,
-        setCharacters,
-        series,
-        setSeries,
-        events,
-        setEvents,
-        orderByEvents,
-        setOrderByEvents,
-        orderByCharacters,
-        setOrderByCharacters,
-        orderBySeries,
-        setOrderBySeries,
-        title,
-        marvelArray,
-        setMarvelArray,
-        setTitle,
+        offset,
+        setOffset,
+        comics,
+        setComics,
+        orderBy,
+        setOrderBy,
         limit,
         setLimit,
+        total,
+        setTotal,
+        searchByName,
+        setSearchByName,
+        comicData,
+        setComicData,
       }}
     >
       {children}
