@@ -5,18 +5,16 @@ import PropTypes from "prop-types";
 import { useContext } from "react";
 import MarvelContext from "../../store/contexts/MarvelContext";
 
-const Gallery = ({ title }) => {
-  const { marvelArray } = useContext(MarvelContext);
+const Gallery = () => {
+  const { comics } = useContext(MarvelContext);
 
   return (
-    marvelArray && (
+    comics && (
       <>
-        <h2 className="gallery-title">MARVEL {title}</h2>
-
         <div className="gallery-container">
-          {marvelArray.map((item) => (
-            <NavLink key={item.id} to={`/`}>
-              <Card key={item.id} marvelEvent={item} />
+          {comics.map((comic) => (
+            <NavLink key={comic.id} to={`/${comic.id}`}>
+              <Card key={comic.id} marvelComic={comic} />
             </NavLink>
           ))}
         </div>
@@ -26,7 +24,7 @@ const Gallery = ({ title }) => {
 };
 
 Gallery.propTypes = {
-  marvelArray: PropTypes.array,
+  comics: PropTypes.array,
 };
 
 export default Gallery;
