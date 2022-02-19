@@ -36,6 +36,22 @@
   color: #ffffff;
 }
 
+.search__close {
+  margin-left: 7px;
+  background-color: #454545;
+  opacity: 0.8;
+  width: 43px;
+  height: 43px;
+  border-radius: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  p {
+    z-index: 5;
+  }
+}
+
 .search__input:focus {
   outline: none;
 }
