@@ -1,0 +1,145 @@
+.detail {
+  width: 100vw;
+  height: 100vh;
+  img {
+    position: absolute;
+    height: 100vh;
+    width: auto;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__card {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+  &__info-box {
+    z-index: 1;
+    position: relative;
+    right: 0;
+    background-color: #161616ee;
+    color: rgb(230, 230, 230);
+    height: auto;
+    padding: 25px;
+    padding-left: 30px;
+    width: 310px;
+    border-radius: 12% 0 0 12%;
+    margin: 0 0 0.5rem 0;
+    animation-name: open;
+    animation-duration: 2s;
+  }
+  &__close {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    background-color: #161616ee;
+    width: 65px;
+    height: 28px;
+    border-radius: 0 12px 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 6px;
+    cursor: pointer;
+    p {
+      font: 15px "Roboto", sans-serif;
+      font-weight: 600;
+      color: rgb(230, 230, 230);
+      z-index: 5;
+    }
+  }
+  &__title {
+    font-weight: 600;
+    margin-top: 5px;
+    font-family: "Roboto", sans-serif;
+    color: rgb(243, 242, 242);
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+  &__format {
+    font-size: 16px;
+    margin-bottom: 7px;
+    font-weight: 500;
+    color: rgb(167, 0, 0);
+  }
+  &__description {
+    font: 15px "Roboto", sans-serif;
+    text-align: left;
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
+  &__more-info {
+    padding: 10p 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    justify-content: end;
+    font-weight: lighter;
+    text-align: left;
+    font: 13px "Roboto", sans-serif;
+    margin-bottom: 25px;
+    margin-top: 15px;
+    P {
+      margin-bottom: 5px;
+    }
+  }
+  &__link {
+    display: flex;
+    justify-content: end;
+    a {
+      background-color: #454545;
+      opacity: 0.8;
+      font-family: 13px "Roboto", sans-serif;
+      width: 120px;
+      border-radius: 50px;
+      padding: 5px 10px;
+      border: none;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+      color: #ffffff;
+    }
+    a:hover {
+      color: rgb(209, 0, 0);
+    }
+  }
+  .line {
+    width: 100%;
+    height: 1px;
+    background-color: #454545;
+  }
+}
+@keyframes open {
+  from {
+    right: -500px;
+  }
+  to {
+    right: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .detail {
+    background-image: url(../../assets/marvelimage.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__card {
+      width: 75%;
+      background-color: black;
+      height: 75%;
+    }
+  }
+}
