@@ -1,102 +1,64 @@
-import { useContext, useEffect } from "react";
-import MarvelContext from "../../store/contexts/MarvelContext";
+import { useEffect, useContext } from "react";
 import Gallery from "../../components/Galley/Gallery";
 import "./MarvelPage.scss";
 import useMarvel from "../../hooks/useMarvel";
 import Footer from "../../components/Footer/Footer";
 import Pagination from "../../components/Pagination/Pagination";
+import Search from "../../components/Search/Search";
+import MarvelContext from "../../store/contexts/MarvelContext";
 
 const MarvelPage = () => {
-  const {
-    setOrderByEvents,
-    orderByEvents,
-    title,
-    setTitle,
-    events,
-    characters,
-    series,
-    setMarvelArray,
-  } = useContext(MarvelContext);
-  const { getEvents, getCharacters, getSeries } = useMarvel();
+  const { getComics } = useMarvel();
+  const { setOrderBy, orderBy, searchByName } = useContext(MarvelContext);
 
-  const eventsOptions = [
-    { label: "By Date: Start to End", value: "startDate" },
-    { label: "By Date: End to Start", value: "-startDate" },
-    { label: "By Name: A - Z", value: "name" },
-    { label: "By Name: Z - A", value: "-name" },
+  const comicsOptions = [
+    { label: "By Title: A - Z", value: "title" },
+    { label: "By Title: Z - A", value: "-title" },
+    { label: "On Sale Date: New - Old", value: "-onsaleDate" },
+    { label: "On Sale Date: Old - New", value: "onsaleDate" },
+  ];
+
+  const format = [
+    { id: 1, format: "comic" },
+    { id: 2, format: "magazine" },
+    { id: 3, format: "trade paperback" },
+    { id: 4, format: "hardcover" },
+    { id: 5, format: "digest" },
+    { id: 6, format: "graphic novel" },
+    { id: 7, format: "digital comic" },
+    { id: 8, format: "infinite comic" },
   ];
 
   useEffect(() => {
-    switch (title) {
-      case "EVENTS":
-        getEvents();
-        events && setMarvelArray(events);
-        break;
-      case "CHARACTERS":
-        getCharacters();
-        characters && setMarvelArray(characters);
-        break;
-      case "SERIES":
-        getSeries();
-        series && setMarvelArray(series);
-        break;
-      default:
-        return "error";
-    }
-  }, [
-    characters,
-    events,
-    getCharacters,
-    getEvents,
-    getSeries,
-    series,
-    setMarvelArray,
-    title,
-  ]);
+    !searchByName && getComics();
+  }, [getComics, searchByName]);
 
-  const changeOrder = (event) => {
-    setOrderByEvents(event.target.value);
-  };
-
-  const changeTitle = (newTitle) => {
-    console.log(newTitle);
-    setTitle(newTitle);
+  const changeComicsOrder = (event) => {
+    setOrderBy(event.target.value);
   };
 
   return (
     <div className="marvel">
       <div className="marvel__img"></div>
       <div className="marvel__filter">
-        <button
-          onClick={() => changeTitle("EVENTS")}
-          className="marvel__filter-button"
-        >
-          EVENTS
-        </button>
-        <button
-          onClick={() => changeTitle("CHARACTERS")}
-          className="marvel__filter-button"
-        >
-          CHARACTERS
-        </button>
-        <button
-          onClick={() => changeTitle("SERIES")}
-          className="marvel__filter-button"
-        >
-          SERIES
+        <button onClick={() => {}} className="marvel__filter-button">
+          MARVEL COMICS WORLD
         </button>
       </div>
-      <div className="orderBy">
-        <h3 style={{ color: "white" }}>Sort: </h3>
-        <select value={orderByEvents} onChange={changeOrder}>
-          {eventsOptions.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
+      <h2 className="gallery-title">COMICS</h2>
+      <div className="filter">
+        <Search />
+        <div className="filter__dropdown">
+          <select value={orderBy} onChange={changeComicsOrder}>
+            {comicsOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
-      <Gallery title={title} />
+      <Gallery />
       <Pagination />
       <Footer />
     </div>

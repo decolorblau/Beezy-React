@@ -33,10 +33,36 @@
       color: rgb(209, 0, 0);
       background-color: rgb(220, 221, 225);
     }
-    /*     button:active {
+    .active {
       color: rgb(209, 0, 0);
       background-color: rgb(220, 221, 225);
-    } */
+    }
+  }
+}
+.filter {
+  display: flex;
+  color: white;
+  align-items: center;
+  max-width: 1536px;
+  width: 100%;
+  justify-content: center;
+  margin: 30px 0 20px;
+  position: relative;
+
+  select {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    color: white;
+    background-color: #454545;
+    opacity: 0.8;
+    border-radius: 50px;
+    font: 16px "Roboto", sans-serif;
+    font-weight: normal;
+    max-width: 100%;
+    padding: 8px 25px 8px 15px;
+    border: none;
+    margin-right: 25px;
   }
 }
 

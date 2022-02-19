@@ -1,32 +1,19 @@
 import "./Card.scss";
 import PropTypes from "prop-types";
 
-const Card = ({ marvelEvent }) => {
+const Card = ({ marvelComic }) => {
   return (
-    <section className="card-container">
+    <section className="card">
       <img
         className="card__image"
-        src={`${marvelEvent.thumbnail.path}.${marvelEvent.thumbnail.extension}`}
-        alt={`Poster of ${marvelEvent.title}`}
+        src={`${marvelComic.thumbnail.path}.${marvelComic.thumbnail.extension}`}
+        alt={`Poster of ${marvelComic.title}`}
       />
       <div className="card__info">
-        <div>
-          <h3 className="card__title">{marvelEvent.title}</h3>
-          {marvelEvent.start && marvelEvent.end ? (
-            <div className="card__period">
-              <p className="card__period--text">
-                Start {marvelEvent.start.split(" ")[0]}
-              </p>
-              <p className="card__period--text">
-                End {marvelEvent.end.split(" ")[0]}
-              </p>
-            </div>
-          ) : (
-            <div className="card__period">
-              <p className="card__period--text">Start not defined</p>
-              <p className="card__period--text">End not defined</p>
-            </div>
-          )}
+        <h3 className="card__title">{marvelComic.title}</h3>
+        <div className="card__text">
+          <p className="card__format">{marvelComic.format}</p>
+          <p className="card__price">Price: {marvelComic.prices[0].price} €</p>
         </div>
       </div>
     </section>
