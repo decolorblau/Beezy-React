@@ -6,7 +6,7 @@
 a {
   text-decoration: none;
 }
-.card-container {
+.card {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -14,36 +14,37 @@ a {
   overflow: hidden;
   margin: 5px;
   margin-bottom: 10px;
+  min-height: 239px;
+  &__image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+
+  &__info {
+    width: 100%;
+    bottom: 0px;
+    height: 35px;
+    text-align: right;
+  }
+
+  &__title {
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
+    margin-top: 5px;
+    font-family: "marvelregular", sans-serif;
+    letter-spacing: 1px;
+  }
+  &__text {
+    display: none;
+  }
 }
 
-.card__image {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-
-.card__info {
-  width: 100%;
-  bottom: 0px;
-  height: 35px;
-  text-align: right;
-}
-
-.card__title {
-  font-size: 13px;
-  font-weight: 500;
-  color: white;
-  margin-top: 5px;
-  font-family: "marvelregular", sans-serif;
-  letter-spacing: 1px;
-}
-.card-container:hover .card__title {
+.card:hover .card__title {
   color: rgb(209, 0, 0);
 }
 
-.card__period {
-  display: none;
-}
 @media (min-width: 768px) {
   .card__info {
     height: 40px;
@@ -56,7 +57,7 @@ a {
 }
 
 @media (min-width: 1024px) {
-  .card-container {
+  .card {
     display: flex;
     justify-content: flex-end;
     position: relative;
@@ -64,16 +65,30 @@ a {
     margin: 5px;
     overflow-y: hidden;
     padding-bottom: 0px;
+    &__info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      bottom: -220px;
+      font-family: "Roboto", sans-serif;
+      backdrop-filter: blur(5px);
+      background: rgba(21, 24, 27, 0.8);
+      transition: 0.5s;
+      position: absolute;
+    }
+    &__title {
+      display: none;
+    }
+    &__info > div {
+      margin-top: 0;
+    }
+    &__text {
+      display: none;
+    }
   }
-  .card-container .card__info {
-    bottom: -40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  .card-container:hover .card__info {
+  .card:hover .card__info {
     bottom: 0px;
     height: 100%;
     .card__title {
@@ -83,30 +98,22 @@ a {
       font-weight: 700;
       margin-bottom: 10px;
       padding: 0 5px;
+      text-align: center;
     }
-    .card__period {
-      display: block;
+    .card__text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       color: white;
       font-size: 12px;
     }
-  }
-  .card__info {
-    width: 100%;
-    bottom: -220px;
-    text-align: right;
-    font-family: "Raleway", sans-serif;
-    backdrop-filter: blur(5px);
-    background: rgba(21, 24, 27, 0.8);
-    transition: 0.5s;
-    position: absolute;
-  }
-  .card__title {
-    display: none;
-  }
-  .card__info > div {
-    margin-top: 0;
-  }
-  .card__period {
-    display: none;
+    .card__price {
+      position: absolute;
+      text-align: center;
+      bottom: 30px;
+      color: white;
+      font-family: "roboto", sans-serif;
+      font-size: 16px;
+    }
   }
 }
