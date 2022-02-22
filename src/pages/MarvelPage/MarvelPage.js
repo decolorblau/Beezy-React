@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import Gallery from "../../components/Galley/Gallery";
 import "./MarvelPage.scss";
 import useMarvel from "../../hooks/useMarvel";
@@ -6,10 +6,15 @@ import Footer from "../../components/Footer/Footer";
 import Pagination from "../../components/Pagination/Pagination";
 import Search from "../../components/Search/Search";
 import MarvelContext from "../../store/contexts/MarvelContext";
+import Categories from "../../components/Categories/Categories";
 
 const MarvelPage = () => {
-  const { getComics } = useMarvel();
-  const { setOrderBy, orderBy, searchByName } = useContext(MarvelContext);
+  const { getComics, getComicsByFormat, getComicsByFormatAndByName } =
+    useMarvel();
+  const { setOrderBy, orderBy, searchByName, title, lastSearch } =
+    useContext(MarvelContext);
+
+  const [isFilter, setIsFilter] = useState(false);
 
   const comicsOptions = [
     { label: "By Title: A - Z", value: "title" },
@@ -18,7 +23,8 @@ const MarvelPage = () => {
     { label: "On Sale Date: Old - New", value: "onsaleDate" },
   ];
 
-  const format = [
+  const formatList = [
+    { id: 0, format: "all comics" },
     { id: 1, format: "comic" },
     { id: 2, format: "magazine" },
     { id: 3, format: "trade paperback" },
@@ -30,34 +36,56 @@ const MarvelPage = () => {
   ];
 
   useEffect(() => {
-    !searchByName && getComics();
-  }, [getComics, searchByName]);
+    if (!searchByName && title === "all comics") {
+      getComics();
+    } else if (!searchByName && title !== "all comics") {
+      getComicsByFormat(title);
+    } else if (searchByName && title !== "all comics") {
+      console.log(lastSearch);
+      getComicsByFormatAndByName(lastSearch, title);
+    }
+  }, [
+    getComics,
+    getComicsByFormat,
+    getComicsByFormatAndByName,
+    lastSearch,
+    searchByName,
+    title,
+  ]);
 
   const changeComicsOrder = (event) => {
     setOrderBy(event.target.value);
   };
 
+  const toggleHide = () => {
+    setIsFilter(!isFilter);
+    console.log(isFilter);
+  };
+
   return (
     <div className="marvel">
       <div className="marvel__img"></div>
-      <div className="marvel__filter">
-        <button onClick={() => {}} className="marvel__filter-button">
-          MARVEL COMICS WORLD
-        </button>
+      <div onClick={() => toggleHide()} className="marvel__filter">
+        <button>+ Filter</button>
       </div>
-      <h2 className="gallery-title">COMICS</h2>
-      <div className="filter">
-        <Search />
-        <div className="filter__dropdown">
-          <select value={orderBy} onChange={changeComicsOrder}>
-            {comicsOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
+      <div className={isFilter ? "active" : "hide"}>
+        <div className="line"></div>
+        <Categories formats={formatList} />
+        <div className="filter">
+          <Search />
+          <div className="filter__dropdown">
+            <select value={orderBy} onChange={changeComicsOrder}>
+              {comicsOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
+
+      <h2 className="gallery-title">{title.toUpperCase()}</h2>
       <Gallery />
       <Pagination />
       <Footer />
