@@ -8,18 +8,20 @@ import MarvelContext from "../../store/contexts/MarvelContext";
 const Gallery = () => {
   const { comics } = useContext(MarvelContext);
 
-  return (
-    comics && (
-      <>
-        <div className="gallery-container">
-          {comics.map((comic) => (
-            <NavLink key={comic.id} to={`/${comic.id}`}>
-              <Card key={comic.id} marvelComic={comic} />
-            </NavLink>
-          ))}
-        </div>
-      </>
-    )
+  return comics && comics.length > 0 ? (
+    <>
+      <div className="gallery-container">
+        {comics.map((comic) => (
+          <NavLink key={comic.id} to={`/${comic.id}`}>
+            <Card key={comic.id} marvelComic={comic} />
+          </NavLink>
+        ))}
+      </div>
+    </>
+  ) : (
+    <div className="gallery-empty-container">
+      <p>No comics available</p>
+    </div>
   );
 };
 
