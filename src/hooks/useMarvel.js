@@ -28,6 +28,30 @@ const useMarvel = () => {
     }
   }, [orderBy, limit, offset, setComics, setTotal]);
 
+  const getComicsByFormat = useCallback(
+    async (format) => {
+      try {
+        const { data } = await axios.get(`${urlApi}comics`, {
+          params: {
+            orderBy: orderBy,
+            limit: limit,
+            offset: offset,
+            ts: process.env.REACT_APP_MARVEL_TS,
+            apikey: process.env.REACT_APP_MARVEL_APIKEY,
+            hash: process.env.REACT_APP_MARVEL_HASH,
+            format: format,
+          },
+        });
+        const { data: comics } = data;
+        setComics(comics.results);
+        setTotal(comics.total);
+      } catch (error) {
+        return error;
+      }
+    },
+    [limit, offset, orderBy, setComics, setTotal]
+  );
+
   const getComicsByName = useCallback(
     async (search) => {
       try {
@@ -39,6 +63,30 @@ const useMarvel = () => {
             ts: process.env.REACT_APP_MARVEL_TS,
             apikey: process.env.REACT_APP_MARVEL_APIKEY,
             hash: process.env.REACT_APP_MARVEL_HASH,
+            titleStartsWith: search,
+          },
+        });
+        const { data: comics } = data;
+        setComics(comics.results);
+        setTotal(comics.total);
+      } catch (error) {
+        return error;
+      }
+    },
+    [limit, offset, orderBy, setComics, setTotal]
+  );
+  const getComicsByFormatAndByName = useCallback(
+    async (search, format) => {
+      try {
+        const { data } = await axios.get(`${urlApi}comics`, {
+          params: {
+            orderBy: orderBy,
+            limit: limit,
+            offset: offset,
+            ts: process.env.REACT_APP_MARVEL_TS,
+            apikey: process.env.REACT_APP_MARVEL_APIKEY,
+            hash: process.env.REACT_APP_MARVEL_HASH,
+            format: format,
             titleStartsWith: search,
           },
         });
@@ -73,7 +121,9 @@ const useMarvel = () => {
 
   return {
     getComics,
+    getComicsByFormat,
     getComicsByName,
+    getComicsByFormatAndByName,
     getComicById,
   };
 };
