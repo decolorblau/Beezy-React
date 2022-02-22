@@ -5,15 +5,29 @@ import MarvelContext from "../../store/contexts/MarvelContext";
 
 const Search = () => {
   const [searchInput, setSearchInput] = useState("");
-  const { getComicsByName, getComics } = useMarvel();
-  const { setSearchByName } = useContext(MarvelContext);
+  const { getComicsByName, getComics, getComicsByFormatAndByName } =
+    useMarvel();
+  const { setSearchByName, title, setOffset, setLastSearch } =
+    useContext(MarvelContext);
 
   const changeValue = (event) => {
     setSearchInput(event.target.value);
+    setLastSearch(event.target.value);
+    setOffset(0);
+    setSearchByName(true);
+    if (title === "all comics") {
+      getComicsByName(searchInput);
+    } else {
+      getComicsByFormatAndByName(searchInput, title);
+    }
   };
 
   const sendData = () => {
-    getComicsByName(searchInput);
+    if (title === "all comics") {
+      getComicsByName(searchInput);
+    } else {
+      getComicsByFormatAndByName(searchInput, title);
+    }
   };
 
   const handleKeyDown = (event) => {
@@ -24,12 +38,13 @@ const Search = () => {
 
   const clearData = () => {
     setSearchInput("");
+    setOffset(0);
     setSearchByName(false);
     getComics();
   };
 
   return (
-    <>
+    <div className="search">
       <div className="search__bar">
         <div className="search__button" onClick={sendData}>
           <img
@@ -53,7 +68,7 @@ const Search = () => {
       <div className="search__close" onClick={clearData}>
         <p>X</p>
       </div>
-    </>
+    </div>
   );
 };
 
