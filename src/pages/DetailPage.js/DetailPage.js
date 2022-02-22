@@ -25,12 +25,22 @@ const DetailPage = () => {
   return (
     newComic && (
       <section className="detail">
+        <div
+          className="detail__img"
+          style={{
+            backgroundImage: `url(${newComic.thumbnail.path}.${newComic.thumbnail.extension})`,
+            backgroundRepeat: "no-repeat",
+            backgroundPositionX: "center",
+            backgroundSize: "cover",
+          }}
+        ></div>
         <div className="detail__card">
-          <img
-            className="detail__image"
-            src={`${newComic.thumbnail.path}.${newComic.thumbnail.extension}`}
-            alt={`Poster of ${newComic.title}`}
-          />
+          <div className="detail__image">
+            <img
+              src={`${newComic.thumbnail.path}.${newComic.thumbnail.extension}`}
+              alt={`Poster of ${newComic.title}`}
+            />
+          </div>
           <div className="detail__close">
             <NavLink to="/">
               <p>{"<"} Back</p>
@@ -48,15 +58,14 @@ const DetailPage = () => {
                 </p>
               )}
             </div>
-            {/*           {newComic.creators.items.length > 0 && (
-              <p className="detail__creator">
-                by {newComic.creators.items[0].name}
-              </p>
-            )} */}
             <div className="line" />
             <div className="detail__more-info">
               <p>Publish: {newComic.dates[0].date.split("-", 1)}</p>
-              <p>ISBN: {newComic.isbn}</p>
+              {newComic.isbn !== "" ? (
+                <p>ISBN: {newComic.isbn}</p>
+              ) : (
+                <p>ISBN: Not available</p>
+              )}
               <p>Pages: {newComic.pageCount}</p>
               <p>Price: {newComic.prices[0].price} €</p>
             </div>

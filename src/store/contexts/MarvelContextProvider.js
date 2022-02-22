@@ -9,6 +9,8 @@ const MarvelContextProvider = ({ children }) => {
   const [total, setTotal] = useState(51242);
   const [searchByName, setSearchByName] = useState(false);
   const [comicData, setComicData] = useState([]);
+  const [lastSearch, setLastSearch] = useState("");
+  const [title, setTitle] = useState("all comics");
 
   return (
     <MarvelContext.Provider
@@ -27,6 +29,10 @@ const MarvelContextProvider = ({ children }) => {
         setSearchByName,
         comicData,
         setComicData,
+        title,
+        setTitle,
+        lastSearch,
+        setLastSearch,
       }}
     >
       {children}

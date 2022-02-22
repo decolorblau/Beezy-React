@@ -1,24 +1,25 @@
 .detail {
   width: 100vw;
   height: 100vh;
-  img {
-    position: absolute;
+  &__img {
+    width: 100vw;
     height: 100vh;
-    width: auto;
-    z-index: 0;
+    position: absolute;
     display: flex;
     align-items: center;
-    justify-content: center;
   }
   &__card {
     height: 100%;
     width: 100%;
     position: relative;
     display: flex;
-    align-items: end;
-    justify-content: end;
+    align-items: flex-end;
+    justify-content: flex-end;
     flex-direction: column;
     overflow-x: hidden;
+  }
+  &__image {
+    display: none;
   }
   &__info-box {
     z-index: 1;
@@ -92,7 +93,7 @@
   }
   &__link {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     a {
       background-color: #454545;
       opacity: 0.8;
@@ -125,21 +126,94 @@
   }
 }
 
+@media (min-width: 768px) {
+  .detail {
+    width: 100vw;
+    height: 100vh;
+    img {
+      position: absolute;
+      height: auto;
+      width: 100vw;
+      z-index: 0;
+    }
+  }
+}
+
 @media (min-width: 1024px) {
   .detail {
-    background-image: url(../../assets/marvelimage.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    &__img {
+      opacity: 0.3;
+      filter: blur(7px);
+    }
     &__card {
-      width: 75%;
-      background-color: black;
-      height: 75%;
+      z-index: 5;
+      opacity: 1;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+    &__image {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      img {
+        width: auto;
+        height: 95%;
+      }
+    }
+    &__info-box {
+      height: 70%;
+      padding: 60px;
+      width: 60vw;
+      border-radius: 50px 0 0 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    &__close {
+      width: 120px;
+      height: 40px;
+      border-radius: 0 20px 20px 0;
+
+      p {
+        font: 17px "Roboto", sans-serif;
+      }
+    }
+    &__title {
+      font-weight: 600;
+      margin-top: 20px;
+      font-family: "Roboto", sans-serif;
+      color: rgb(243, 242, 242);
+      margin-bottom: 30px;
+      font-size: 22px;
+    }
+    &__format {
+      font-size: 22px;
+    }
+    &__description {
+      font: 17px "Roboto", sans-serif;
+      margin-bottom: 30px;
+    }
+    &__more-info {
+      padding: 30p 15px;
+
+      justify-content: end;
+      font-weight: lighter;
+      text-align: left;
+      font: 13px "Roboto", sans-serif;
+      margin-bottom: 150px;
+      margin-top: 30px;
+      P {
+        margin-bottom: 15px;
+      }
     }
   }
 }
