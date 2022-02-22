@@ -26,7 +26,6 @@ const Categories = ({ formats }) => {
       if (format === "all comics") {
         getComicsByName(lastSearch);
       } else {
-        console.log(lastSearch);
         getComicsByFormatAndByName(lastSearch, format);
       }
     }

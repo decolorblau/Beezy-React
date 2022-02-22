@@ -111,7 +111,6 @@ const useMarvel = () => {
         });
         const { data: comic } = data;
         setComicData(comic.results);
-        console.log(...comic.results);
       } catch (error) {
         return error;
       }
