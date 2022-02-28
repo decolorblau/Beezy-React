@@ -3,10 +3,17 @@ import { useContext, useEffect, useMemo, useState } from "react";
 import useMarvel from "../../hooks/useMarvel";
 import MarvelContext from "../../store/contexts/MarvelContext";
 import "./DetailPage.scss";
+import { css } from "@emotion/react";
+import ClipLoader from "react-spinners/ClipLoader";
 
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 const DetailPage = () => {
   const { id } = useParams();
-  const { comicData } = useContext(MarvelContext);
+  const { comicData, isLoading } = useContext(MarvelContext);
   const { getComicById } = useMarvel();
   const [newComic, setNewComic] = useState(false);
 
@@ -21,7 +28,18 @@ const DetailPage = () => {
     }
   }, [comicData]);
 
-  return (
+  return isLoading ? (
+    <section className="detail">
+      <div className="detail__card">
+        <ClipLoader
+          className="detail"
+          loading={isLoading}
+          css={override}
+          size={120}
+        />
+      </div>
+    </section>
+  ) : (
     newComic && (
       <section className="detail">
         <div
