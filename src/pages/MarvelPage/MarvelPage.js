@@ -41,7 +41,6 @@ const MarvelPage = () => {
     } else if (!searchByName && title !== "all comics") {
       getComicsByFormat(title);
     } else if (searchByName && title !== "all comics") {
-      console.log(lastSearch);
       getComicsByFormatAndByName(lastSearch, title);
     }
   }, [
@@ -59,7 +58,6 @@ const MarvelPage = () => {
 
   const toggleHide = () => {
     setIsFilter(!isFilter);
-    console.log(isFilter);
   };
 
   return (
