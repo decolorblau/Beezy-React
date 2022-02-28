@@ -6,7 +6,7 @@ const useMarvel = () => {
   const { offset, setComics, orderBy, limit, setTotal, setComicData } =
     useContext(MarvelContext);
 
-  const urlApi = "http://gateway.marvel.com/v1/public/";
+  const urlApi = "https://gateway.marvel.com/v1/public/";
 
   const getComics = useCallback(async () => {
     try {
