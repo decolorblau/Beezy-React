@@ -1,15 +1,8 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Categories from "./Categories";
 import { BrowserRouter as Router } from "react-router-dom";
 import MarvelContextProvider from "../../store/contexts/MarvelContextProvider";
-import MarvelContext from "../../store/contexts/MarvelContext";
 import ReactTestRenderer from "react-test-renderer";
-import { renderHook, act } from "@testing-library/react-hooks";
-import useMarvel from "../../hooks/useMarvel";
-
-/* const mockGetComics = jest.fn();
-
-jest.mock("../../hooks/useMarvel.js"); */
 
 describe("Given the component Categories", () => {
   describe("When it receives an array of categories", () => {
@@ -73,42 +66,4 @@ describe("Given the component Categories", () => {
       expect(categoriesComponent.toJSON()).toMatchSnapshot();
     });
   });
-  /*   describe("When it receives an array of categories and", () => {
-    test("Then it should call", () => {
-      const { result } = renderHook(() => useMarvel());
-      const marvelContext = {
-        offset: 20,
-        setOffset: jest.fn(),
-        limit: 20,
-        orderBy: "title",
-        setTitle: jest.fn(),
-        setComics: [],
-        setTotal: 0,
-        setComicData: [],
-      };
-
-      const formatList = [
-        { id: 0, format: "all comics" },
-        { id: 1, format: "comic" },
-        { id: 2, format: "magazine" },
-        { id: 3, format: "trade paperback" },
-      ];
-
-      render(
-        <MarvelContext.Provider value={marvelContext}>
-          <Router>
-            <Categories formats={formatList} />
-          </Router>
-        </MarvelContext.Provider>
-      );
-
-      const allComicsButton = screen.getByRole("button", {
-        name: "ALL COMICS",
-      });
-
-      fireEvent.click(allComicsButton);
-
-      expect(result.current.getComics).toHaveBeenCalled();
-    });
-  }); */
 });
