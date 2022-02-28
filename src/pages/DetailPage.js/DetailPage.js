@@ -1,8 +1,7 @@
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import { useContext, useEffect, useMemo, useState } from "react";
 import useMarvel from "../../hooks/useMarvel";
 import MarvelContext from "../../store/contexts/MarvelContext";
-import { NavLink } from "react-router-dom";
 import "./DetailPage.scss";
 
 const DetailPage = () => {
