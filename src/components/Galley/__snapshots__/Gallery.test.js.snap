@@ -7,7 +7,7 @@ exports[`Given the component Gallery When it receives an array of comics Then it
 >
   <a
     className=""
-    href="/2345"
+    href="/comic/2345"
     onClick={[Function]}
   >
     <section
@@ -47,7 +47,7 @@ exports[`Given the component Gallery When it receives an array of comics Then it
   </a>
   <a
     className=""
-    href="/2375"
+    href="/comic/2375"
     onClick={[Function]}
   >
     <section
