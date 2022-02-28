@@ -5,7 +5,7 @@
   overflow-x: hidden;
 
   &__img {
-    background-image: url(../../assets/marvelimage.jpg);
+    background-image: url(../../assets/marvelimage.webp);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -112,7 +112,7 @@
 @media (min-width: 1024px) {
   .marvel {
     &__img {
-      background-image: url(../../assets/marvelimagebig.jpg);
+      background-image: url(../../assets/marvelimagebig.webp);
       width: 100%;
       height: 68vh;
     }

@@ -10,7 +10,7 @@ const Gallery = () => {
 
   return comics && comics.length > 0 ? (
     <>
-      <div className="gallery-container">
+      <div className="gallery-container" title="Comics">
         {comics.map((comic) => (
           <NavLink key={comic.id} to={`/${comic.id}`}>
             <Card key={comic.id} marvelComic={comic} />
@@ -19,7 +19,7 @@ const Gallery = () => {
       </div>
     </>
   ) : (
-    <div className="gallery-empty-container">
+    <div className="gallery-empty-container" title="No Comics">
       <p>No comics available</p>
     </div>
   );

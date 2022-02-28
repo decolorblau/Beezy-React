@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given the component Gallery When it receives an array of comics Then it should render gallery of comics 1`] = `
+<div
+  className="gallery-container"
+  title="Comics"
+>
+  <a
+    className=""
+    href="/2345"
+    onClick={[Function]}
+  >
+    <section
+      className="card"
+    >
+      <img
+        alt="Poster of Avengers"
+        className="card__image"
+        src="https://image.tmdb.org/t/p/w500.jpg"
+      />
+      <div
+        className="card__info"
+      >
+        <h3
+          className="card__title"
+        >
+          Avengers
+        </h3>
+        <div
+          className="card__text"
+        >
+          <p
+            className="card__format"
+          >
+            comic
+          </p>
+          <p
+            className="card__price"
+          >
+            Price: 
+            3.99
+             €
+          </p>
+        </div>
+      </div>
+    </section>
+  </a>
+  <a
+    className=""
+    href="/2375"
+    onClick={[Function]}
+  >
+    <section
+      className="card"
+    >
+      <img
+        alt="Poster of Avengers 2"
+        className="card__image"
+        src="https://image.tmdb.org/t/p/w500.jpg"
+      />
+      <div
+        className="card__info"
+      >
+        <h3
+          className="card__title"
+        >
+          Avengers 2
+        </h3>
+        <div
+          className="card__text"
+        >
+          <p
+            className="card__format"
+          >
+            comic
+          </p>
+          <p
+            className="card__price"
+          >
+            Price: 
+            2.99
+             €
+          </p>
+        </div>
+      </div>
+    </section>
+  </a>
+</div>
+`;

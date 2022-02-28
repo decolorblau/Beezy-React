@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given the component Categories When it receives an array of categories Then it should render buttons with formatList info inside 1`] = `
+<div
+  className="formats"
+>
+  <button
+    className="format"
+    onClick={[Function]}
+  >
+    COMIC
+  </button>
+  <button
+    className="format"
+    onClick={[Function]}
+  >
+    MAGAZINE
+  </button>
+  <button
+    className="format"
+    onClick={[Function]}
+  >
+    TRADE PAPERBACK
+  </button>
+</div>
+`;

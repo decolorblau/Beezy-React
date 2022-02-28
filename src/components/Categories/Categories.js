@@ -48,7 +48,7 @@ const Categories = ({ formats }) => {
 };
 
 Categories.protoTypes = {
-  format: PropTypes.array.isRequired,
+  formats: PropTypes.array.isRequired,
 };
 
 export default Categories;
