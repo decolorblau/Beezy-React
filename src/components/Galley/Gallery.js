@@ -24,7 +24,7 @@ const Gallery = () => {
     <>
       <div className="gallery-container" title="Comics">
         {comics.map((comic) => (
-          <NavLink key={comic.id} to={`/${comic.id}`}>
+          <NavLink key={comic.id} to={`comic/${comic.id}`}>
             <Card key={comic.id} marvelComic={comic} />
           </NavLink>
         ))}

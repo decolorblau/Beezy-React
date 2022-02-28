@@ -11,7 +11,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<MarvelPage />} />
-          <Route path="/:id" element={<DetailPage />} />
+          <Route path="/comic/:id" element={<DetailPage />} />
           <Route path="*" element={<NotFoundPage />}></Route>
         </Routes>
       </Router>
