@@ -77,14 +77,13 @@
     font-weight: 500;
   }
   &__more-info {
-    padding: 10p 15px;
+    padding: 10px 15px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     justify-content: end;
-    font-weight: lighter;
     text-align: left;
-    font: 13px "Roboto", sans-serif;
+    font: lighter 13px "Roboto", sans-serif;
     margin-bottom: 25px;
     margin-top: 15px;
     P {
@@ -105,7 +104,6 @@
       color: #ffffff;
       text-decoration: none;
       font-size: 13px;
-      color: #ffffff;
     }
     a:hover {
       color: rgb(209, 0, 0);
@@ -203,12 +201,9 @@
       margin-bottom: 30px;
     }
     &__more-info {
-      padding: 30p 15px;
-
+      padding: 30px 15px;
       justify-content: end;
-      font-weight: lighter;
       text-align: left;
-      font: 13px "Roboto", sans-serif;
       margin-bottom: 150px;
       margin-top: 30px;
       P {
