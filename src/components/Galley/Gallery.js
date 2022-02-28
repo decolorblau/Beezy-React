@@ -31,10 +31,9 @@ const Gallery = () => {
       </div>
     </>
   ) : (
-    <p>bi</p>
-    /*     <div className="gallery-empty-container" title="No Comics">
+    <div className="gallery-empty-container" title="No Comics">
       <p>No comics available</p>
-    </div> */
+    </div>
   );
 };
 
