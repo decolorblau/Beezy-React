@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given the component Card When it receives a object Then it should render a card with the comic info inside 1`] = `[Function]`;
