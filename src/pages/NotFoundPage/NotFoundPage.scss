@@ -1,0 +1,35 @@
+.not-found {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  h2 {
+    color: #fff;
+    font: 17px "Roboto", sans-serif;
+    margin-bottom: 20px;
+    font-size: 36px;
+  }
+  p {
+    color: #fff;
+    font: 14px "Roboto", sans-serif;
+    font-size: 24px;
+  }
+  button {
+    display: flex;
+    justify-content: center;
+    background-color: #454545;
+    opacity: 0.8;
+    font: 20px "Roboto", sans-serif;
+    width: 150px;
+    border-radius: 50px;
+    padding: 5px 10px;
+    border: none;
+    color: #ffffff;
+    text-decoration: none;
+    margin-top: 50px;
+  }
+  button:hover {
+    color: rgb(209, 0, 0);
+  }
+}
