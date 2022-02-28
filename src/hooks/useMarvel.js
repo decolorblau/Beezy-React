@@ -3,12 +3,20 @@ import { useCallback, useContext } from "react";
 import MarvelContext from "../store/contexts/MarvelContext";
 
 const useMarvel = () => {
-  const { offset, setComics, orderBy, limit, setTotal, setComicData } =
-    useContext(MarvelContext);
+  const {
+    offset,
+    setComics,
+    orderBy,
+    limit,
+    setTotal,
+    setComicData,
+    setIsLoading,
+  } = useContext(MarvelContext);
 
   const urlApi = "https://gateway.marvel.com/v1/public/";
 
   const getComics = useCallback(async () => {
+    setIsLoading(true);
     try {
       const { data } = await axios.get(`${urlApi}comics`, {
         params: {
@@ -21,15 +29,18 @@ const useMarvel = () => {
         },
       });
       const { data: comics } = data;
+      setIsLoading(false);
       setComics(comics.results);
       setTotal(comics.total);
     } catch (error) {
+      setIsLoading(false);
       return error;
     }
-  }, [orderBy, limit, offset, setComics, setTotal]);
+  }, [setIsLoading, orderBy, limit, offset, setComics, setTotal]);
 
   const getComicsByFormat = useCallback(
     async (format) => {
+      setIsLoading(true);
       try {
         const { data } = await axios.get(`${urlApi}comics`, {
           params: {
@@ -43,17 +54,20 @@ const useMarvel = () => {
           },
         });
         const { data: comics } = data;
+        setIsLoading(false);
         setComics(comics.results);
         setTotal(comics.total);
       } catch (error) {
+        setIsLoading(false);
         return error;
       }
     },
-    [limit, offset, orderBy, setComics, setTotal]
+    [limit, offset, orderBy, setComics, setIsLoading, setTotal]
   );
 
   const getComicsByName = useCallback(
     async (search) => {
+      setIsLoading(true);
       try {
         const { data } = await axios.get(`${urlApi}comics`, {
           params: {
@@ -67,16 +81,19 @@ const useMarvel = () => {
           },
         });
         const { data: comics } = data;
+        setIsLoading(false);
         setComics(comics.results);
         setTotal(comics.total);
       } catch (error) {
+        setIsLoading(false);
         return error;
       }
     },
-    [limit, offset, orderBy, setComics, setTotal]
+    [limit, offset, orderBy, setComics, setIsLoading, setTotal]
   );
   const getComicsByFormatAndByName = useCallback(
     async (search, format) => {
+      setIsLoading(true);
       try {
         const { data } = await axios.get(`${urlApi}comics`, {
           params: {
@@ -91,16 +108,19 @@ const useMarvel = () => {
           },
         });
         const { data: comics } = data;
+        setIsLoading(false);
         setComics(comics.results);
         setTotal(comics.total);
       } catch (error) {
+        setIsLoading(false);
         return error;
       }
     },
-    [limit, offset, orderBy, setComics, setTotal]
+    [limit, offset, orderBy, setComics, setIsLoading, setTotal]
   );
   const getComicById = useCallback(
     async (id) => {
+      setIsLoading(true);
       try {
         const { data } = await axios.get(`${urlApi}comics/${id}`, {
           params: {
@@ -110,12 +130,14 @@ const useMarvel = () => {
           },
         });
         const { data: comic } = data;
+        setIsLoading(false);
         setComicData(comic.results);
       } catch (error) {
+        setIsLoading(false);
         return error;
       }
     },
-    [setComicData]
+    [setComicData, setIsLoading]
   );
 
   return {

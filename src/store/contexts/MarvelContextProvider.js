@@ -11,6 +11,7 @@ const MarvelContextProvider = ({ children }) => {
   const [comicData, setComicData] = useState([]);
   const [lastSearch, setLastSearch] = useState("");
   const [title, setTitle] = useState("all comics");
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <MarvelContext.Provider
@@ -33,6 +34,8 @@ const MarvelContextProvider = ({ children }) => {
         setTitle,
         lastSearch,
         setLastSearch,
+        isLoading,
+        setIsLoading,
       }}
     >
       {children}
