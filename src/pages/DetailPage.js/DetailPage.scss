@@ -79,7 +79,7 @@
   &__more-info {
     padding: 10px 15px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 2fr 1fr;
     grid-template-rows: auto;
     justify-content: end;
     text-align: left;

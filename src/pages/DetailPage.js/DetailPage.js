@@ -16,6 +16,7 @@ const DetailPage = () => {
   const { comicData, isLoading } = useContext(MarvelContext);
   const { getComicById } = useMarvel();
   const [newComic, setNewComic] = useState(false);
+  const [date, setDate] = useState("");
 
   useEffect(() => {
     setNewComic(false);
@@ -27,6 +28,23 @@ const DetailPage = () => {
       setNewComic(...comicData);
     }
   }, [comicData]);
+
+  useEffect(() => {
+    const dateOptions = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+
+    if (newComic) {
+      setDate(
+        new Date(newComic.dates[0].date).toLocaleDateString(
+          "en-GB",
+          dateOptions
+        )
+      );
+    }
+  }, [newComic]);
 
   return isLoading ? (
     <section className="detail">
@@ -77,17 +95,17 @@ const DetailPage = () => {
             </div>
             <div className="line" />
             <div className="detail__more-info">
-              <p>Publish: {newComic.dates[0].date.split("-", 1)}</p>
+              <p>Published: {date}</p>
+              <p>Pages: {newComic.pageCount}</p>
               {newComic.isbn !== "" ? (
                 <p>ISBN: {newComic.isbn}</p>
               ) : (
                 <p>ISBN: Not available</p>
               )}
-              <p>Pages: {newComic.pageCount}</p>
               <p>Price: {newComic.prices[0].price} €</p>
             </div>
             <div className="detail__link">
-              <a href={newComic.urls[0].url} className="detail__actors">
+              <a href={newComic.urls[0].url} target="_blank" rel="noreferrer">
                 Go to Official Link {">"}
               </a>
             </div>
