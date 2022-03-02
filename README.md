@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+![alt text](https://1000marcas.net/wp-content/uploads/2020/02/Marvel-Studios-Logo-2002.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MARVEL COMICS APP
+
+## BEEZY FRONTEND CHALLENGE
+
+[CLICK HERE TO DISCOVER MARVEL COMICS APP](https://beezy-react-marvel.netlify.app/)
+
+This is a Front-end application build with React, using Context and a Custom Hook to share the state across the app, with React Router v6, SASS and tested with Jest. All the data is obtained by consuming a Marvel API. Requests are made with Axios.
+
+There are two principal screens in the app:
+
+HOME: It shows a list of comics coming from the Api, with a cover image and some information of each one. In desktop screens, the user can find the title of comic,the publication format, for example comic, hardcover, magazine,... and the price. In the tablet and mobile version the user can show the cover image and the title of comic.
+
+In addition, on the home page the user can click the toggle filter button, and a menu with different filter options is displayed. The app allows you to sort articles by Title or by on Sale Date, filter articles by publication format type, search by title, and combine all of these filters.
+
+At the end of the page, there is a pagination component with before and next buttons.
+
+DETAIL: It shows detailed information of the selected comic.
+
+The complete application is responsive. It has three breakpoints: mobile, tablet and desktop. The styles are build only with SASS, applying BEM in the classes, to get the customization that I wanted in the design. It is tested with Jest, you can find unit testing. And for ensure write Clean Code I helped myself with PropTypes, Eslint, SonarQube and lighthouse tools.
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+## Project setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+npm install
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Runs the app in the development mode
 
-### `npm test`
+```
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Builds the app for production
 
-### `npm run build`
+```
+npm run build
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Run unit tests in the interactive watch mode
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+npm test
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Run unit tests in the interactive watch mode with coverage
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+npm run test-cov
+```
