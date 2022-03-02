@@ -1,11 +1,7 @@
-# [MARVEL COMICS APP](https://beezy-react-marvel.netlify.app/)
+# MARVEL COMICS APP
 ## BEEZY FRONTEND CHALLENGE
 
-<p align="center">
-<img src="https://1000marcas.net/wp-content/uploads/2020/02/Marvel-Studios-Logo-2002.png" width=30% height=30%>
-
-[CLICK HERE TO DISCOVER MARVEL COMICS APP](https://beezy-react-marvel.netlify.app/)
-</p>
+PRODUCTION MODE LINK --> [CLICK HERE TO DISCOVER MARVEL COMICS APP](https://beezy-react-marvel.netlify.app/)
 
 This is a Front-end application build with React, using Context and a Custom Hook to share the state across the app, with React Router v6, SASS and tested with Jest. All the data is obtained by consuming a Marvel API. Requests are made with Axios.
 
@@ -20,6 +16,10 @@ At the end of the page, there is a pagination component with before and next but
 DETAIL: It shows detailed information of the selected comic.
 
 The complete application is responsive. It has three breakpoints: mobile, tablet and desktop. The styles are build only with SASS, applying BEM in the classes, to get the customization that I wanted in the design. It is tested with Jest, you can find unit testing. And for ensure write Clean Code I helped myself with PropTypes, Eslint, SonarQube and lighthouse tools.
+
+<p align="center">
+<img src="https://1000marcas.net/wp-content/uploads/2020/02/Marvel-Studios-Logo-2002.png" width=30% height=30%>
+</p>
 
 ## Available Scripts
 
