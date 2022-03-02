@@ -20,11 +20,15 @@ const Pagination = () => {
   return (
     <>
       <div className="pagination">
-        <button onClick={beforePage}>{"<<"} Before</button>
+        <button disabled={offset <= 0} onClick={beforePage}>
+          {"<<"} Before
+        </button>
         <p title="info-comics">
           {offset} - {offset + limit} of {total} comics
         </p>
-        <button onClick={nextPage}>Next {">>"}</button>
+        <button disabled={offset >= total} onClick={nextPage}>
+          Next {">>"}
+        </button>
       </div>
     </>
   );
