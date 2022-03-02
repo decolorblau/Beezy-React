@@ -1,8 +1,8 @@
-![alt text](https://1000marcas.net/wp-content/uploads/2020/02/Marvel-Studios-Logo-2002.png)
-
 # MARVEL COMICS APP
 
 ## BEEZY FRONTEND CHALLENGE
+
+![alt text](https://1000marcas.net/wp-content/uploads/2020/02/Marvel-Studios-Logo-2002.png)
 
 [CLICK HERE TO DISCOVER MARVEL COMICS APP](https://beezy-react-marvel.netlify.app/)
 
