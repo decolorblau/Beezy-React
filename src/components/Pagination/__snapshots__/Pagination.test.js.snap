@@ -5,6 +5,7 @@ exports[`Given the component Pagination When it receives an object with limit, o
   className="pagination"
 >
   <button
+    disabled={true}
     onClick={[Function]}
   >
     &lt;&lt;
@@ -21,6 +22,7 @@ exports[`Given the component Pagination When it receives an object with limit, o
      comics
   </p>
   <button
+    disabled={false}
     onClick={[Function]}
   >
     Next 
