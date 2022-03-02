@@ -78,6 +78,13 @@
       width: 43px;
       height: 43px;
       border-radius: 21px;
+      font-weight: 500;
+    }
+    &__close:active {
+      color: rgb(209, 0, 0);
+    }
+    &__close:hover {
+      color: rgb(209, 0, 0);
     }
   }
 }
