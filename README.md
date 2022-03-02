@@ -1,9 +1,11 @@
 # [MARVEL COMICS APP](https://beezy-react-marvel.netlify.app/)
 ## BEEZY FRONTEND CHALLENGE
 
-<img src="https://1000marcas.net/wp-content/uploads/2020/02/Marvel-Studios-Logo-2002.png" width=50% height=50%>
+<p align="center">
+<img src="https://1000marcas.net/wp-content/uploads/2020/02/Marvel-Studios-Logo-2002.png" width=30% height=30%>
 
 [CLICK HERE TO DISCOVER MARVEL COMICS APP](https://beezy-react-marvel.netlify.app/)
+</p>
 
 This is a Front-end application build with React, using Context and a Custom Hook to share the state across the app, with React Router v6, SASS and tested with Jest. All the data is obtained by consuming a Marvel API. Requests are made with Axios.
 
