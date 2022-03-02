@@ -9,7 +9,7 @@ This is a Front-end application build with React, using Context and a Custom Hoo
 
 There are two principal screens in the app:
 
-HOME: It shows a list of comics coming from the Api, with a cover image and some information of each one. In desktop screens, the user can find the title of comic,the publication format, for example comic, hardcover, magazine,... and the price. In the tablet and mobile version the user can show the cover image and the title of comic.
+HOME: It shows a list of comics coming from the Api, with a cover image and some information of each one. On desktop screens, the user can find the title of comic, the publication format, for example comic, hardcover or magazine, and the price of comic. On tablet and mobile version the user can show the cover image and the title of comic.
 
 In addition, on the home page the user can click the toggle filter button, and a menu with different filter options is displayed. The app allows you to sort articles by Title or by on Sale Date, filter articles by publication format type, search by title, and combine all of these filters.
 
