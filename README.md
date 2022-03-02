@@ -2,7 +2,7 @@
 ## BEEZY FRONTEND CHALLENGE
 
 
- ----> [CLICK HERE TO DISCOVER MARVEL COMICS APP: https://beezy-react-marvel.netlify.app/](https://beezy-react-marvel.netlify.app/) <----
+LINK ----> [CLICK HERE TO DISCOVER MARVEL COMICS APP: https://beezy-react-marvel.netlify.app/](https://beezy-react-marvel.netlify.app/)
 
 
 This is a Front-end application build with React, using Context and a Custom Hook to share the state across the app, with React Router v6, SASS and tested with Jest. All the data is obtained by consuming a Marvel API. Requests are made with Axios.
