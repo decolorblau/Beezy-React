@@ -20,6 +20,9 @@
   letter-spacing: 2px;
   color: rgba(220, 220, 220, 0.9);
 }
+.format:active {
+  color: rgb(209, 0, 0);
+}
 
 .formats::-webkit-scrollbar {
   -webkit-appearance: none;
